@@ -96,11 +96,23 @@ LOGIN_URL = 'loginurl'
 ### 
 
 ```python
-from django.contrib.auth.models import AbstractUser
+**from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class CustomUser(AbstractUser):
-    User_Type = models.CharField(choices=USER, max_length=100, null=True)
+    USER_TYPE_CHOICES = (
+        ('admin', 'Admin'),
+        ('vendor', 'Vendor'),
+        ('customer', 'Customer'),
+    )
+
+    user_type = models.CharField(
+        max_length=20,
+        choices=USER_TYPE_CHOICES,
+        null=True,
+        blank=True
+    )
+**
     # Add other custom fields here
 
 ```
