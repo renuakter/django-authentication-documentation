@@ -314,7 +314,7 @@ def departmentpage(req):
 ```python
 from django.contrib import admin
 from django.urls import path
-from myapp.views import *
+from myapp.views import signuppage,loginpage,logoutpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
